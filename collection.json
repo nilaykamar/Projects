@@ -1,0 +1,287 @@
+[{
+        "collection_id": 1,
+        "res_count": 30,
+        "image_url": "https://b.zmtcdn.com/data/collections/b53772a204429cb9b42313d6dc22bf3c_1556018415.jpg",
+        "url": "https://www.zomato.com/istanbul/top-restaurants?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Trending This Week",
+        "description": "Most popular restaurants in town this week",
+        "share_url": "http://www.zoma.to/c-59/1"
+    },
+    {
+        "collection_id": 20,
+        "res_count": 76,
+        "image_url": "https://b.zmtcdn.com/data/collections/e339d2493262a6503615600290e63bfe_1455271359.jpg",
+        "url": "https://www.zomato.com/istanbul/great-breakfasts?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Great Breakfasts",
+        "description": "Brekkie or brunch, regardless what tickles your fancy, immerse yourself in our city’s cafe culture at these top spots",
+        "share_url": "http://www.zoma.to/c-59/20"
+      },
+      {
+        "collection_id": 169,
+        "res_count": 44,
+        "image_url": "https://b.zmtcdn.com/data/collections/c7463b587438fecac06e5e306a578b43_1418394947_l.jpg",
+        "url": "https://www.zomato.com/istanbul/meyhaneler?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Turkish Taverns",
+        "description": "Traditional Turkish style food and raki experience.",
+        "share_url": "http://www.zoma.to/c-59/169"
+      },
+      {
+        "collection_id": 29,
+        "res_count": 36,
+        "image_url": "https://b.zmtcdn.com/data/collections/7bef8e84e64ccf5b728c77510b7d52ad_1535355701.jpg",
+        "url": "https://www.zomato.com/istanbul/newly-opened?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Newly Opened",
+        "description": "The best new places in town",
+        "share_url": "http://www.zoma.to/c-59/29"
+      },
+      {
+        "collection_id": 303280,
+        "res_count": 5,
+        "image_url": "https://b.zmtcdn.com/data/collections/b7555eb1e0e5bb7dc7e26ef6b893651f_1538046592.jpg",
+        "url": "https://www.zomato.com/istanbul/sneak-peek-istanbul?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Sneak Peek Istanbul",
+        "description": "Know the HOW behind the WOW!",
+        "share_url": "http://www.zoma.to/c-59/303280"
+      },
+      {
+        "collection_id": 5,
+        "res_count": 46,
+        "image_url": "https://b.zmtcdn.com/data/collections/908544d169e65b181b0e7613e5529532_1470642851.jpg",
+        "url": "https://www.zomato.com/istanbul/best-burger?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Kickass Burgers",
+        "description": "Chow down on a cheeselicious burger!",
+        "share_url": "http://www.zoma.to/c-59/5"
+      },
+      {
+        "collection_id": 1430,
+        "res_count": 30,
+        "image_url": "https://b.zmtcdn.com/data/collections/e3150ef771431e36ff739cd24cdbd8a1_1446815570_l.jpg",
+        "url": "https://www.zomato.com/istanbul/best-bars-and-clubs?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Best Bars & Clubs ",
+        "description": "Check out the best spots for Night-Life in İstanbul!",
+        "share_url": "http://www.zoma.to/c-59/1430"
+      },
+      {
+        "collection_id": 22,
+        "res_count": 51,
+        "image_url": "https://b.zmtcdn.com/data/collections/b1eb0d5826a9286150fa3438095fcd93_1538393788.jpg",
+        "url": "https://www.zomato.com/istanbul/best-coffee?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Great Coffee",
+        "description": "Caffeinate away with that perfect cup of cappuccino, mocha or latte from some of the best coffee spots",
+        "share_url": "http://www.zoma.to/c-59/22"
+      },
+      {
+        "collection_id": 173,
+        "res_count": 20,
+        "image_url": "https://b.zmtcdn.com/data/collections/82498c05468f980d062de962759b40a0_1468493033.jpg",
+        "url": "https://www.zomato.com/istanbul/best-cocktail-bars?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Cocktail Bars",
+        "description": "Discover best cocktails prepared by award-winning bartenders ",
+        "share_url": "http://www.zoma.to/c-59/173"
+      },
+      {
+        "collection_id": 152,
+        "res_count": 30,
+        "image_url": "https://b.zmtcdn.com/data/collections/1fd38e391be7d86d1518ae8272cbaa21_1418395147_l.jpg",
+        "url": "https://www.zomato.com/istanbul/restaurant-with-view?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Restaurants With A View",
+        "description": "Eat, drink and enjoy the most beautiful views the city has to offer",
+        "share_url": "http://www.zoma.to/c-59/152"
+      },
+      {
+        "collection_id": 99,
+        "res_count": 33,
+        "image_url": "https://b.zmtcdn.com/data/collections/526b13e4aa5ea899eddd14aac19c26b4_1491467200.jpg",
+        "url": "https://www.zomato.com/istanbul/sports-screenings?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Live Sports Screenings",
+        "description": "Catch the best sporting action live!",
+        "share_url": "http://www.zoma.to/c-59/99"
+      },
+      {
+        "collection_id": 149,
+        "res_count": 58,
+        "image_url": "https://b.zmtcdn.com/data/collections/14f894aed56fb940a53b52931f9644d6_1560843881.jpg",
+        "url": "https://www.zomato.com/istanbul/sweet-o-clock?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Sweet O'Clock",
+        "description": "Life is short! Eat the dessert!",
+        "share_url": "http://www.zoma.to/c-59/149"
+      },
+      {
+        "collection_id": 61,
+        "res_count": 38,
+        "image_url": "https://b.zmtcdn.com/data/collections/9ab36e26bda15a4537f26da59245e8d9_1470134906.jpg",
+        "url": "https://www.zomato.com/istanbul/kebab?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Kebab Places",
+        "description": "The best bite-sized delights in town.",
+        "share_url": "http://www.zoma.to/c-59/61"
+      },
+      {
+        "collection_id": 294320,
+        "res_count": 16,
+        "image_url": "https://b.zmtcdn.com/data/collections/775fd6a174e309503f4ceb7e434b79a8_1548080402.jpg",
+        "url": "https://www.zomato.com/istanbul/gourmet-street-foods?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Gourmet Street Foods",
+        "description": "Gourmet tastes for street food lovers",
+        "share_url": "http://www.zoma.to/c-59/294320"
+      },
+      {
+        "collection_id": 16,
+        "res_count": 24,
+        "image_url": "https://b.zmtcdn.com/data/collections/f35008b07387dad450d428e60bf96196_1438667290_l.jpg",
+        "url": "https://www.zomato.com/istanbul/celebrity-chef-restaurants?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Celebrity Chefs",
+        "description": "Savor the creations of the masters",
+        "share_url": "http://www.zoma.to/c-59/16"
+      },
+      {
+        "collection_id": 297364,
+        "res_count": 16,
+        "image_url": "https://b.zmtcdn.com/data/collections/25987e2844d96b57f8e23cd6b9c02096_1554897239.jpg",
+        "url": "https://www.zomato.com/istanbul/modern-turkish-tavern?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "New Trend! Modern Turkish Taverns",
+        "description": "Traditional Turkish style food with old Turkish pop songs.",
+        "share_url": "http://www.zoma.to/c-59/297364"
+      },
+      {
+        "collection_id": 13,
+        "res_count": 40,
+        "image_url": "https://b.zmtcdn.com/data/collections/0b7eddd301bf0c348605c14c02aee837_1535356009.jpg",
+        "url": "https://www.zomato.com/istanbul/rooftop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Rooftops",
+        "description": "If you fancy a meal with a view",
+        "share_url": "http://www.zoma.to/c-59/13"
+      },
+      {
+        "collection_id": 558,
+        "res_count": 23,
+        "image_url": "https://b.zmtcdn.com/data/collections/69e5a43935b4e69ecb56a40cddae57db_1453705388.jpg",
+        "url": "https://www.zomato.com/istanbul/pet-friendly-places?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Pet-friendly",
+        "description": "Come with your best buddy!",
+        "share_url": "http://www.zoma.to/c-59/558"
+      },
+      {
+        "collection_id": 245,
+        "res_count": 30,
+        "image_url": "https://b.zmtcdn.com/data/collections/8ca6dbf562c7255a00a8a95630129e1b_1551874614.jpg",
+        "url": "https://www.zomato.com/istanbul/best-doner?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Döner",
+        "description": "The ultimate snack - find your favourite version in the city",
+        "share_url": "http://www.zoma.to/c-59/245"
+      },
+      {
+        "collection_id": 295552,
+        "res_count": 16,
+        "image_url": "https://b.zmtcdn.com/data/collections/40893ec858a70f43f5b915c03dbda38b_1550843267.jpg",
+        "url": "https://www.zomato.com/istanbul/healthy-bowls?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Healthy Bowls",
+        "description": "Açai Bowl for Breakfast, Poke Bowl for dinner...",
+        "share_url": "http://www.zoma.to/c-59/295552"
+      },
+      {
+        "collection_id": 321,
+        "res_count": 23,
+        "image_url": "https://b.zmtcdn.com/data/collections/1a857f2a40e952be1e6c96f5c9b0791c_1475154171.jpg",
+        "url": "https://www.zomato.com/istanbul/pizza-time?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Pizza Time!",
+        "description": "The best pizza places in town",
+        "share_url": "http://www.zoma.to/c-59/321"
+      },
+      {
+        "collection_id": 293866,
+        "res_count": 42,
+        "image_url": "https://b.zmtcdn.com/data/collections/4d8ff8eeeccfb0dcbf0157759d1e86e1_1547036966.jpg",
+        "url": "https://www.zomato.com/istanbul/uzakdoğu-mutfağı?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Far East",
+        "description": "Looking for an unforgettable experience and atmosphere?",
+        "share_url": "http://www.zoma.to/c-59/293866"
+      },
+      {
+        "collection_id": 3,
+        "res_count": 22,
+        "image_url": "https://b.zmtcdn.com/data/collections/adcba184844a8a9fc44f3e9b059f8315_1554698126.jpg",
+        "url": "https://www.zomato.com/istanbul/romantic-restaurants?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Romantic",
+        "description": "The perfect spots for a romantic meal",
+        "share_url": "http://www.zoma.to/c-59/3"
+      },
+      {
+        "collection_id": 275,
+        "res_count": 19,
+        "image_url": "https://b.zmtcdn.com/data/collections/8b0f1e27121549fb607ca465836a110f_1438789475_l.jpg",
+        "url": "https://www.zomato.com/istanbul/italian-restaurants?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Mamma Mia!",
+        "description": "Sink your teeth into the best risottos and pastas around",
+        "share_url": "http://www.zoma.to/c-59/275"
+      },
+      {
+        "collection_id": 159,
+        "res_count": 33,
+        "image_url": "https://b.zmtcdn.com/data/collections/0c3ab003b217fa52b5057ac04beddd69_1438940495_l.jpg",
+        "url": "https://www.zomato.com/istanbul/best-seafood?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Seafood Restaurants",
+        "description": "The best seafood places in town",
+        "share_url": "http://www.zoma.to/c-59/159"
+      },
+      {
+        "collection_id": 17,
+        "res_count": 35,
+        "image_url": "https://b.zmtcdn.com/data/collections/3e6e25de65bba31fa98d5378e7feb7b9_1478172031.jpg",
+        "url": "https://www.zomato.com/istanbul/shisha?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Sheesha Lounges",
+        "description": "Our hand picked venues around the city to enjoy some great Sheesha!",
+        "share_url": "http://www.zoma.to/c-59/17"
+      },
+      {
+        "collection_id": 157,
+        "res_count": 18,
+        "image_url": "https://b.zmtcdn.com/data/collections/44b0bcd7535844a551b61d63121d6040_1418394998_l.jpg",
+        "url": "https://www.zomato.com/istanbul/carnivorous?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Carnivorous",
+        "description": "Medium-rare? Well-done? Steak your pick.",
+        "share_url": "http://www.zoma.to/c-59/157"
+      },
+      {
+        "collection_id": 153,
+        "res_count": 22,
+        "image_url": "https://b.zmtcdn.com/data/collections/054517c37abda3b56a433f52588ec10f_1418394755_l.jpg",
+        "url": "https://www.zomato.com/istanbul/bosphorus-restaurants?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Seaside and Bosphorus",
+        "description": "Eat and drink with a view of Asia.. or Europe",
+        "share_url": "http://www.zoma.to/c-59/153"
+      },
+      {
+        "collection_id": 205911,
+        "res_count": 21,
+        "image_url": "https://b.zmtcdn.com/data/collections/8a5f6057a83f252ec5fa67135b9ab71a_1481184758.jpg",
+        "url": "https://www.zomato.com/istanbul/luxury-dining?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Luxury dining",
+        "description": "Find the best luxury restaurants for an elegant dinner",
+        "share_url": "http://www.zoma.to/c-59/205911"
+      },
+      {
+        "collection_id": 160,
+        "res_count": 19,
+        "image_url": "https://b.zmtcdn.com/data/collections/6f9b51020fa78151e3b685f5d5ae1d25_1418629809_l.jpg",
+        "url": "https://www.zomato.com/istanbul/fasil?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Fasil",
+        "description": "Authentic fasil music and awesome food come together",
+        "share_url": "http://www.zoma.to/c-59/160"
+      },
+      {
+        "collection_id": 211,
+        "res_count": 20,
+        "image_url": "https://b.zmtcdn.com/data/collections/07739196e8ca2887852739415d3b6690_1560843754.jpg",
+        "url": "https://www.zomato.com/istanbul/century-old-restaurants?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "Century-Old Tastes of Istanbul",
+        "description": "Places that have been in Istanbul for a long time.",
+        "share_url": "http://www.zoma.to/c-59/211"
+      },{
+        "collection_id": 1420,
+        "res_count": 20,
+        "image_url": "https://b.zmtcdn.com/data/collections/42fc45991e473e09d9cd41a731f2540e_1446305588_l.jpg",
+        "url": "https://www.zomato.com/istanbul/best-lahmacun?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "title": "The Best Lahmacun Restaurants",
+        "description": "Bread, meat and veggies. The perfect combination.",
+        "share_url": "http://www.zoma.to/c-59/1420"
+      }]
