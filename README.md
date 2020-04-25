@@ -1,35 +1,40 @@
 # About
 
-This repository includes my projects while I have been studying in Big Data Analytics Program at MEF University. You can reach my all term projects and assignments from my GitHub Page. If you ask me a question about projects or source codes, do not hesitate [e-mail] (kamarn@mef.edu.tr) to me.
+This repository includes my projects while I have been studying in Big Data Analytics Program at MEF University. You can reach my all term projects and assignments from my GitHub Page. If you ask me a question about projects or source codes, do not hesitate [e-mail](kamarn@mef.edu.tr) to me.
 
-# Term 1 
+## Term 1 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The first term of the program is about to introductory courses in data analytics. 
 
-```markdown
-Syntax highlighted code block
+### Applied Statistics with Utku Koc
 
-# Header 1
-## Header 2
-### Header 3
+### Data Analytics Essentials with Berk Orbay
 
-- Bulleted
-- List
+- The group [project](https://pjournal.github.io/mef03g-r-mut/) of the course is related to Analysis of Central Bank of Turkey interest rates. 
+- You can reach the part of my final exam from [here.](Final.htm)
 
-1. Numbered
-2. List
+### Big Data Management with Serhat Cevikel
 
-**Bold** and _Italic_ and `Code` text
+- My term project is data analysis on Baby Names at USA dataset. You can find it [here.](babynames.htm)
+- You can reach my final exam and source codes from [here.]()
 
-[Link](url) and ![Image](src)
-```
+### Intro to Programming for Big Data (Python) with Tuna Cakar
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+- My term project of the course was related to Zomato Restaurant Analysis in Caddebostan and Nisantasi. You can reach my source codes from [here.](https://notebooks.gesis.org/binder/jupyter/user/nilayka-projects-trevoqjr/notebooks/BDA507%20-%20Term_Project_Nilay_Kamar.ipynb)
 
-### Jekyll Themes
+## Term 2
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/nilayka/Projects/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+The second term of the program includes two modules. You learn more deep of the machine learning algorithmsThe first module, also the first seven weeks of the term, 
 
-### Support or Contact
+### Introduction to Machine Learning with Tuna Cakar
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- My term project is related to Natural Language Processing on tweets via using Twitter API. My works on the project has been developing. 
+
+### Optimization and Simulation with Dicle Aslan
+
+
+### Marketing Analytics with Ozgur Ozluk
+
+
+### Web Analytics with Sercan Akkas
+
