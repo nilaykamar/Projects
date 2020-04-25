@@ -11,7 +11,7 @@ The first term of the program is about to introductory courses in data analytics
 ### Data Analytics Essentials with Berk Orbay
 
 - The group [project](https://pjournal.github.io/mef03g-r-mut/) of the course is related to Analysis of Central Bank of Turkey interest rates. 
-- You can reach the part of my final exam from [here.](Final.html)
+- You can reach the part of my final exam from [here.](Final.htm)
 
 ### Big Data Management with Serhat Cevikel
 
@@ -32,13 +32,9 @@ The second term of the program includes two modules. You learn more deep of the 
 
 ### Optimization and Simulation with Dicle Aslan
 
-- You can reach the part of my final exam from [here.]()
 
 ### Marketing Analytics with Ozgur Ozluk
 
 
 ### Web Analytics with Sercan Akkas
 
-
-
-**Bold** and _Italic_ and `Code` text
