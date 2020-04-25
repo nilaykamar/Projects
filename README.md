@@ -1,10 +1,8 @@
-## Welcome to GitHub Pages
+# About
 
-You can use the [editor on GitHub](https://github.com/nilayka/Projects/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This repository includes my projects while I have been studying in Big Data Analytics Program at MEF University. You can reach my all term projects and assignments from my GitHub Page. If you ask me a question about projects or source codes, do not hesitate [e-mail] (kamarn@mef.edu.tr) to me.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
+# Term 1 
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
