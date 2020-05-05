@@ -26,7 +26,7 @@ The course is aimed to perform an end-to-end reproducible data analysis from raw
 
 ## Term 2
 
-The second term of the program includes two modules. We learned more deep of the machine learning algorithms. The first module, also the first seven weeks of the term, includes two mandatory courses and second modules have elective courses. My preferences were Marketing Analytics and Web Analytics to experienced machine learning on real-time data.
+The second term of the program includes two modules. We learned more deep of the machine learning algorithms. The first module, also the first seven weeks of the term, includes two mandatory courses and second modules have elective courses. My preferences were Marketing Analytics and Web Analytics to be experienced machine learning on real-time data.
 
 ### Introduction to Machine Learning with Tuna Cakar
 
