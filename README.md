@@ -13,18 +13,18 @@ The first term of the program is about to introductory courses in data analytics
 The course is aimed to perform an end-to-end reproducible data analysis from raw data to the communication of model outputs. We introduced in basically ggplot, tidyverse, RMarkdown, dplyr, and Shiny app with R programming language. 
 
 - The group [project](https://pjournal.github.io/mef03g-r-mut/) of the course is related to Analysis of Central Bank of Turkey interest rates. 
-- You can reach the part of my final exam from [here.](Final.htm)
+- You can reach the part of my final exam from [here.](https://github.com/nilaykamar/MEF_BDA20/blob/master/Final.html)
 
 ### Big Data Management with Serhat Cevikel
 
 In this course, we were responsible to examine how to query on RDBMS and Big data ecosystems products, design modern edition data warehouses and manage massively parallel processing data warehouse technologies on cloud platforms. We also looked at the existing technologies such as RDBMS systems, Hadoop ecosystem products (Hive, Spark, etc.) and investigate their uses. 
 
-- My term project is data analysis on Baby Names at USA dataset. You can find it [here.](babynames.htm)
-- You can reach my final exam and source codes from [here.](BDM_final_.htm)
+- My term project is data analysis on Baby Names at USA dataset. You can find it [here.](https://github.com/nilaykamar/MEF_BDA20/blob/master/babynames.htm)
+- You can reach my final exam and source codes from [here.](https://github.com/nilaykamar/MEF_BDA20/blob/master/BDM_final_.htm)
 
 ### Intro to Programming for Big Data (Python) with Tuna Cakar
 
-- My term project of the course was related to Zomato Restaurants Analysis in Caddebostan and Nisantasi. You can reach my source codes from [here.](BDA507%20-%20Term_Project_Nilay_Kamar.htm)
+- My term project of the course was related to Zomato Restaurants Analysis in Caddebostan and Nisantasi. You can reach my source codes from [here.](https://github.com/nilaykamar/MEF_BDA20/blob/master/BDA507%20-%20Term_Project_Nilay_Kamar.htm)
 
 ## Term 2
 
