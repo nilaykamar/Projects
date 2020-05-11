@@ -13,7 +13,7 @@ The first term of the program is about to introductory courses in data analytics
 The course is aimed to perform an end-to-end reproducible data analysis from raw data to the communication of model outputs. We introduced in basically ggplot, tidyverse, RMarkdown, dplyr, and Shiny app with R programming language. 
 
 - The group [project](https://pjournal.github.io/mef03g-r-mut/) of the course is related to Analysis of Central Bank of Turkey interest rates. 
-- You can reach the part of my final exam from [here.](../Final.htm)
+- You can reach the part of my final exam from [here.](Final.htm)
 
 ### Big Data Management with Serhat Cevikel
 
