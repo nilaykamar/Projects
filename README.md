@@ -24,7 +24,7 @@ In this course, we were responsible to examine how to query on RDBMS and Big dat
 
 ### Intro to Programming for Big Data (Python) with Tuna Cakar
 
-- My term project of the course was related to Zomato Restaurants Analysis in Caddebostan and Nisantasi. You can reach my source codes from [here.](https://github.com/nilaykamar/MEF_BDA20/blob/master/BDA507%20-%20Term_Project_Nilay_Kamar.html)
+- My term project of the course was related to Zomato Restaurants Analysis in Caddebostan and Nisantasi. You can reach my source codes from [here.](BDA507%20-%20Term_Project_Nilay_Kamar.htm)
 
 ## Term 2
 
