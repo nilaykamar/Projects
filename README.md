@@ -20,7 +20,7 @@ The course is aimed to perform an end-to-end reproducible data analysis from raw
 In this course, we were responsible to examine how to query on RDBMS and Big data ecosystems products, design modern edition data warehouses and manage massively parallel processing data warehouse technologies on cloud platforms. We also looked at the existing technologies such as RDBMS systems, Hadoop ecosystem products (Hive, Spark, etc.) and investigate their uses. 
 
 - My term project is data analysis on Baby Names at USA dataset. You can find it [here.](https://github.com/nilaykamar/MEF_BDA20/blob/master/babynames.htm)
-- You can reach my final exam and source codes from [here.](https://nilaykamar.github.io/MEF_BDA20/BDM_final_.html)
+- You can reach my final exam and source codes from [here.](<https://nilaykamar.github.io/MEF_BDA20/BDM_final_.html>)
 
 ### Intro to Programming for Big Data (Python) with Tuna Cakar
 
