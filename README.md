@@ -1,6 +1,6 @@
 # About
 
-This repository includes my projects while I have been studying in Big Data Analytics Program at MEF University. You can reach my all term projects and assignments from my GitHub Page. If you ask me a question about projects or source codes, do not hesitate [e-mail](mailto: kamarn@mef.edu.tr?subject=[Mef BDA Github Projects]%20) to me.
+This repository includes my projects while I have been studying in Big Data Analytics Program at MEF University. You can reach my all term projects and assignments from my GitHub Page. If you ask me a question about projects or source codes, do not hesitate [e-mail](<mailto: kamarn@mef.edu.tr?subject=[MEF%20BDA%20Github%20Projects]>) to me.
 
 ## Term 1 
 
