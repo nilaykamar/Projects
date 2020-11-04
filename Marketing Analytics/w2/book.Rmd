@@ -1,0 +1,650 @@
+---
+title: "R for Marketing Research and Analytics - Chapter 11: Segmentation - Clustering and Classification"
+author: "Nilay Kamar"
+date: "4/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Segmentation as Clustering & Classification
+
+Segmentation is a process of finding groups of customers who are similar to one another, are different from other groups, and exhibit differences that are important for the business.
+
+There is no magic method to solve all three of those requirements simultaneously.
+
+Segmentation requires trying multiple methods and evaluating the results to determine whether they are useful for the business question.
+
+It often occurs that the statistically “best” segmentation is difficult to understand in the business context. A model that is statistically “not as strong” – but is clear and actionable – may be a preferable result.
+
+In this chapter, we give an overview of methods to demonstrate some common approaches.
+
+## Clustering vs Classification
+
+Clustering is the process of finding groups inside data. Key problems include:
+
+  * Determining which variables to use
+  * Finding the right number of clusters
+  * Ensuring the groups differ in interesting ways
+
+Classification is the process of assigning observations (e.g., customers) to **known** categories (segments, clusters). Some important concerns are:
+
+  * Predicting better than chance
+  * Optimizing for positive vs. negative prediction
+  * Generalizing to new data sets
+
+## Example Data
+
+```{r cars}
+seg.raw <- read.csv("http://goo.gl/qw303p")
+seg.df  <- seg.raw[ , -7]     # remove the known segment assignments
+
+summary(seg.df)
+```
+
+## Group differences
+
+We create a simple function to look at mean values by group. (This is a placeholder for a more complex evaluation of an interpretable business outcome.)
+
+```{r pressure, echo=FALSE}
+seg.summ <- function(data, groups) {
+  aggregate(data, list(groups), function(x) mean(as.numeric(x)))  
+}
+
+seg.summ(seg.df, seg.raw$Segment)
+```
+
+## Distance
+
+Clustering methods work by looking at some measure of the distance between observations. They try to find groups whose members are close to one another (and far from others).
+
+A common metric is Euclidian distance, the root square of differences. Manually we could compute:
+
+```{r}
+c(1,2,3) - c(2,3,2)
+
+sum((c(1,2,3) - c(2,3,2))^2)
+
+sqrt(sum((c(1,2,3) - c(2,3,2))^2))
+
+```
+Note that distance is between observations, and the result is a matrix of distances between all pairs (in this case, just one pair).
+
+## dist()
+
+dist() computes Euclidian distance:
+
+```{r}
+sqrt(sum((c(1,2,3) - c(2,3,2))^2))
+dist(rbind(c(1,2,3), c(2,3,2)))
+```
+
+In case of mixed data types (e.g., continuous, binary, ordinal), dist() may not be appropriate because of the huge implied scale differences. daisy() is an alternative that automatically rescales.
+
+```{r}
+library(cluster)                  
+seg.dist <- daisy(seg.df)       # daisy works with mixed data types
+as.matrix(seg.dist)[1:4, 1:4]   # distances of first 4 observations
+
+```
+
+## Hierarchical Clustering
+
+Hierarchical clustering combines closest neighbors (defined in various ways) into progressively larger groups. In R, we first compute distances (previous slide) and then cluster those:
+
+```{r}
+seg.hc <- hclust(seg.dist, method="complete") #hcust:hierchical clustering anlamına geliyor.
+```
+
+Plot the result to see a tree of the solution:
+```{r}
+plot(seg.hc)
+```
+
+## Examining Similarities
+
+We can cut the tree at a particular height and plot above or below. In this case, we cut at a height of 0.5. Then we plot the first ($lower[[1]]) of the resulting trees below that:
+
+```{r}
+plot(cut(as.dendrogram(seg.hc), h=0.5)$lower[[1]])
+```
+
+## Comparing observations in branches
+
+From the previous tree, we select observations from close and far branches:
+
+```{r}
+seg.df[c(101, 107), ]  # similar
+```
+
+```{r}
+seg.df[c(278, 294), ]  # similar
+```
+
+```{r}
+seg.df[c(173, 141), ]  # less similar
+```
+
+## Comparing the dendrogram to the distance matrix
+
+The cophenetic correlation coefficient is a measure of how well the clustering model (expressed in the dendrogram) reflects the distance matrix.
+
+```{r}
+cor(cophenetic(seg.hc), seg.dist)
+```
+
+## Getting K groups from the tree
+
+To get K groups, read from the top of the dendrogram until there are K branches.
+
+rect.hclust() shows where the tree would be cut for K groups:
+
+```{r}
+plot(seg.hc)
+rect.hclust(seg.hc, k=4, border="red")
+```
+
+## Getting segment membership from hclust
+
+Get a vector of class (cluster) assignment:
+
+```{r}
+seg.hc.segment <- cutree(seg.hc, k=4)     # membership vector for 4 groups
+table(seg.hc.segment)
+seg.hc.segment
+```
+
+Compare them with our quick function:
+
+```{r}
+seg.summ(seg.df, seg.hc.segment)
+```
+
+## Is the result interesting?
+
+
+```{r}
+plot(jitter(as.numeric(seg.df$gender)) ~ 
+     jitter(as.numeric(seg.df$subscribe)), 
+       col=seg.hc.segment, yaxt="n", xaxt="n", ylab="", xlab="")
+axis(1, at=c(1, 2), labels=c("Subscribe: No", "Subscribe: Yes"))
+axis(2, at=c(1, 2), labels=levels(seg.df$gender))
+```
+
+## K-means clustering
+
+K-means attempts to find K groups, such that the sum of squared distances for points within clusters are minimized with respect to the cluster center.
+
+To compute this, K-means requires numeric input and a specified number of clusters. We first convert our factor variables to numeric (arguably OK because they're binary):
+
+```{r}
+seg.df.num <- seg.df
+seg.df.num$gender    <- ifelse(seg.df$gender=="Male", 0, 1)
+seg.df.num$ownHome   <- ifelse(seg.df$ownHome=="ownNo", 0, 1)
+seg.df.num$subscribe <- ifelse(seg.df$subscribe=="subNo", 0, 1)
+summary(seg.df.num)
+```
+
+## Find the K-means groups
+
+We try K=4 groups:
+
+```{r}
+set.seed(96743)        # because starting assignments are random
+seg.k <- kmeans(seg.df.num, centers=4)
+```
+
+And examine the quick comparison:
+
+```{r}
+seg.summ(seg.df, seg.k$cluster)
+```
+
+It appears potentially more interesting than the hclust “men and women” solution we saw previously.
+
+## Comparing groups on 1 variable
+
+In the model object, ...$cluster holds the class assignments. We can use that as the IV for plotting:
+
+```{r}
+boxplot(seg.df.num$income ~ seg.k$cluster,
+        xlab="Income", ylab="Segment", horizontal=TRUE)
+```
+
+## Visualizing the overall clusters
+
+A clusplot plots the observations vs. first 2 principal components, grouped by cluster:
+
+```{r}
+library(cluster)
+clusplot(seg.df, seg.k$cluster, color=TRUE, shade=TRUE, 
+         labels=4, lines=0, main="K-means cluster plot")
+```
+
+## Model-based clustering
+
+Model-based clustering (mixture modeling) assumes that observations are mixed from populations with different distributions of the basis variables (i.e., different means and variances).
+
+mclust is one package to find such models (flexmix is another). The data must be numeric. Unlike hclust and kmeans, mclust suggests the number of groups, based on fit statistics.
+
+```{r}
+library(mclust)
+seg.mc <- Mclust(seg.df.num)   # use all defaults
+summary(seg.mc)
+```
+
+## Mclust for 4 groups
+
+We can force mclust to find other numbers of clusters:
+
+```{r}
+seg.mc4 <- Mclust(seg.df.num, G=4)  # 4 clusters
+summary(seg.mc4)
+```
+
+Compare the 2-cluster and 4-cluster solutions:
+
+```{r}
+BIC(seg.mc, seg.mc4)
+```
+
+## Quick take on the better model
+
+```{r}
+seg.summ(seg.df, seg.mc$class)
+```
+
+A primary differentiator appears to be subscription status. Group 1 is non-subscribers, with lower average age and higher income. They might be good targets for a campaign, depending on the business goal.
+
+(Note: Mclust results tend to change from version to version. The results here differ from older versions shown in the textbook. There is no absolute “right” answer for many questions of this kind!)
+
+## Plot for Mclust model
+
+```{r}
+library(cluster)
+clusplot(seg.df, seg.mc$class, color=TRUE, shade=TRUE, 
+         labels=4, lines=0, main="Model-based cluster plot")
+```
+
+## Polytomous analysis
+
+Polytomous latent class analysis attempts to find mixture membership (latent classes) using only categorical data.
+
+To illustrate, we create a data frame with sliced versions of continuous variables converted to factors:
+
+```{r}
+seg.df.cut        <- seg.df
+seg.df.cut$age    <- factor(ifelse(seg.df$age < median(seg.df$age), 
+                                   "LessAge", "MoreAge"))
+seg.df.cut$income <- factor(ifelse(seg.df$income < median(seg.df$income),
+                                   "LessInc", "MoreInc"))
+seg.df.cut$kids   <- factor(ifelse(seg.df$kids < median(seg.df$kids), 
+                                   "FewKids", "MoreKids"))
+summary(seg.df.cut)
+```
+
+## Fit 3- and 4-group models
+
+For simplicity, we create a reusable model formula:
+
+```{r}
+seg.f <- with(seg.df.cut, 
+              cbind(age, gender, income, kids, ownHome, subscribe)~1)
+```
+
+Then fit 3- and 4-group models:
+
+```{r}
+library(poLCA)
+set.seed(02807)
+seg.LCA3 <- poLCA(seg.f, data=seg.df.cut, nclass=3)
+seg.LCA4 <- poLCA(seg.f, data=seg.df.cut, nclass=4)
+```
+
+Check the model fits:
+
+```{r}
+seg.LCA4$bic
+```
+
+```{r}
+seg.LCA3$bic
+```
+
+The 3-group model had stronger fit. But is it more useful?
+
+## Examine the 3-group model
+
+The 3 groups are relatively well differentiated:
+
+```{r}
+seg.summ(seg.df, seg.LCA3$predclass)
+```
+
+```{r}
+clusplot(seg.df, seg.LCA3$predclass, color=TRUE, shade=TRUE, 
+         labels=4, lines=0, main="LCA plot (K=3)")
+```
+
+## Examine the 4-group model
+
+The 4 group solution is less clear, with one group showing complete overlap on first 2 components:
+
+```{r}
+seg.summ(seg.df, seg.LCA4$predclass)
+```
+
+```{r}
+clusplot(seg.df, seg.LCA4$predclass, color=TRUE, shade=TRUE, 
+         labels=4, lines=0, main="LCA plot (K=4)")
+```
+
+## Comparing Cluster solutions
+
+Given two assignment vectors, it's not obvious which categories should match to one another. Function mapClass finds the highest correspondence:
+
+```{r}
+library(mclust)
+mapClass(seg.LCA3$predclass, seg.LCA4$predclass)
+```
+
+## "Correlation" for cluster assignments
+
+The adjusted Rand index is the degree of agreement between two class assignment vectors, where 1.0 indicates perfect agreement:
+
+```{r}
+adjustedRandIndex(seg.LCA3$predclass, seg.LCA4$predclass)
+```
+
+We could compare this to purely random assignment:
+
+```{r}
+set.seed(11021)
+random.data <- sample(4, length(seg.LCA4$predclass), replace=TRUE)
+adjustedRandIndex(random.data, seg.LCA4$predclass)
+```
+
+… and to known segments from the original data:
+
+```{r}
+adjustedRandIndex(seg.raw$Segment, seg.LCA4$predclass)
+
+```
+
+# Classification
+
+Next we'll examine classification methods. Whereas clustering has a lot of “art” in determining when a solution is useful, classification tends to emphasize the “science” of predicting and generalizing.
+
+General concepts
+
+Classification concerns assigning observations to a predefined set of groups. For example, we might wish to assign potential customers to higher- or lower-value prospects … or more generally, assign members of the overall population to a set of customer segments.
+
+Classification can also assign customers to categories reflecting observed behavior, such as “purchasers.” It is one form of predictive modeling.
+
+General steps in classification are:
+
+  1. Collect data with predictors & outcome
+  2. Divide the observations into training and test cases
+  3. Use training cases to fit a model predicting the outcomes
+  4. Confirm that the model works well for test cases
+  5. Apply the model to new data to obtain predictions
+  
+## Naive Bayes classification
+
+The naive Bayes method is simple yet powerful. It uses Bayes's Rule to find the odds of class membership based on the conditional probabilities of predictor variables (assumed to be independent, thus “naive”).
+
+More specifically, it computes conditional probabilities in the training data. The resulting model can then predict group membership probabilities for new observations (given the same predictors).
+
+First we divide data into training and test cases:
+
+```{r}
+set.seed(04625)          # make it repeatable
+train.prop   <- 0.65     # train on 65% of data. Hold 35% for testing
+train.cases  <- sample(nrow(seg.raw), nrow(seg.raw)*train.prop)
+seg.df.train <- seg.raw[ train.cases, ]
+seg.df.test  <- seg.raw[-train.cases, ]
+```
+
+## Naive Bayes model
+
+We fit the model to training data:
+
+```{r}
+library(e1071)
+seg.nb <- naiveBayes(Segment ~ ., data=seg.df.train)
+```
+
+… and predict membership expected in the test (holdout) data:
+
+```{r}
+seg.nb.class <- predict(seg.nb, seg.df.test)
+
+prop.table(table(seg.nb.class))
+```
+
+## Plot the predicted classes
+
+```{r}
+clusplot(seg.df.test[, -7], seg.nb.class, color=TRUE, shade=TRUE, 
+         labels=4, lines=0, 
+         main="Naive Bayes classification, holdout data")
+```
+
+## How well did we do in the test data?
+
+We could compare the proportion of correct assignments:
+
+```{r}
+mean(seg.df.test$Segment==seg.nb.class)   # raw correct proportion
+```
+
+… but better is to assess vs. chance assignment. (If one group is very large, we can't say a model is good just because it mostly predicts that group.)
+
+```{r}
+library(mclust)
+adjustedRandIndex(seg.nb.class, seg.df.test$Segment)
+```
+
+Even better would be a weighted payoff matrix, taking into account the value of correct positive and negative predictions. That depends on the business application (such as cost of targeting vs. margin from a success).
+
+## Random Forests
+
+Another way to do classification is with a decision tree: find an optimal decision path to predict the outcomes. A random forest model generalizes this to use many trees – fitting different predictors and observations – that “vote” on classification.
+
+Like naive Bayes classifiers, Random forests are simple and easy to use, yet often perform well.
+
+We fit a random forest with 3000 individual trees, on the training data:
+
+```{r}
+library(randomForest)
+set.seed(98040)
+seg.rf <- randomForest(Segment ~ ., data=seg.df.train, ntree=3000)
+```
+
+## Random forest model
+
+A simple inspection of the model shows key results:
+
+```{r}
+seg.rf
+```
+
+It includes initial performance tests on holout data (from the training data), and was correct 76% of the time. It was best for Urban hip, with more error for Moving up & Suburb mix.
+
+Concern about error rates depends on interest in the segments.
+
+## Make predictions for the test data
+
+Apply the random forest to the test data:
+
+```{r}
+seg.rf.class <- predict(seg.rf, seg.df.test)
+
+library(cluster)
+clusplot(seg.df.test[, -7], seg.rf.class, color=TRUE, shade=TRUE, 
+         labels=4, lines=0, main="Random Forest classes, test data")
+```
+
+## Individual prediction probabilities
+
+The predictions optionally include odds for each observation:
+
+```{r}
+seg.rf.class.all <- predict(seg.rf, seg.df.test, predict.all=TRUE)
+
+# odds for first five test cases (divide votes by 3000 trees)
+apply(seg.rf.class.all$individual[1:5, ], 1, table) / 3000
+```
+
+Suppose you are interested to target one segment. If targeting cost is high, you might target only the subset with the highest odds.
+
+OTOH, if targeting cost is low (relative to payoff), you might target customers assigned to other segments, who have some chance of being in the target segment. For example, if you're targeting Moving up, you might want to target respondent #2, even though she is slightly more likely to be Suburb mix.
+
+## Variable importance
+
+Random forests can cleverly assess importance of predictors: randomize (permute) a predictor's data and see whether predictions get worse.
+
+```{r}
+set.seed(98040)
+seg.rf <- randomForest(Segment ~ ., data=seg.df.train, 
+                       ntree=3000, importance=TRUE)
+# importance(seg.rf)   # omitted: the actual metrics
+varImpPlot(seg.rf, main="Variable importance by segment")
+```
+
+## A heatmap for variable importance
+
+Importance might be used (e.g.) to determine which variables are “must collect” for a project:
+
+```{r}
+library(gplots)
+library(RColorBrewer)
+heatmap.2(t(importance(seg.rf)[ , 1:4]), key=FALSE,
+          col=brewer.pal(9, "Blues"), 
+          dend="none", trace="none", margins=c(10, 10),
+          main="Var. importance by segment" )
+```
+
+## Predicting subscription status
+
+Who is most likely to subscribe to our service? Can we predict that, given other information? Can we find out which individuals are best to target?
+
+Procedure:
+
+  1. Use random forests to predict subscription in training data
+  2. See how well the model performs in test data
+  3. Examine individual respondents' likelihoods (whom should we target?)
+  
+In real application, you would do #3 with new data. For demonstration purposes we'll use the holdout test data.
+
+## Setting up
+
+We form training and test (holdout) data sets:
+
+```{r}
+set.seed(92118)
+train.prop  <- 0.65
+train.cases <- sample(nrow(seg.df), nrow(seg.df)*train.prop)
+sub.df.train <- seg.raw[ train.cases, ]
+sub.df.test  <- seg.raw[-train.cases, ]
+
+summary(sub.df.train)
+```
+
+## Are subscribers differentiated?
+
+Subscribers are not well differentiated (by first 2 principal components). This suggests our problem may be difficult.
+
+```{r}
+clusplot(sub.df.train[, -6], sub.df.train$subscribe, color=TRUE, 
+         shade=TRUE, labels=4, lines=0, main="Status, training data")
+```
+
+## Fit the training data
+
+```{r}
+library(randomForest)
+set.seed(11954)
+(sub.rf <- randomForest(subscribe ~ ., data=sub.df.train, ntree=3000))
+```
+
+Error rate is low … but looking at the confusion matrix, no subscribers were correctly identified!
+
+So, for our business question, this may not be a useful model (it predicts almost all “won't subscribe”).
+
+## Class imbalance problem
+
+With few subscribers in the training data, the algorithm achieves low error rates simply by predicting “non-subscriber”. This is known as the class imbalance problem.
+
+We can force balanced classes by explicitly setting per-tree sample sizes for classes. Overall error goes up, but goes down for subscribers:
+
+```{r}
+set.seed(11954)
+(sub.rf <- randomForest(subscribe ~ ., data=sub.df.train, ntree=3000, 
+                       sampsize=c(20, 20)) )   # balanced classes
+```
+
+## Predict the holdout data
+
+We get predictions for both classes using predict.all:
+
+```{r}
+sub.rf.sub <- predict(sub.rf, sub.df.test, predict.all=TRUE)
+
+# Not in book: 
+#   Get the proportion within respondent for the two classes,
+#     using table and prop.table apply()'d to each respondents.
+#   Then get just the row with predictons for subscribers ("subYes")
+
+sub.ind.p  <- apply(sub.rf.sub$individual, 1, 
+                    function(x) prop.table(table(x)))["subYes", ]
+summary(sub.ind.p)
+```
+
+## Predicted subscription likelihoods
+
+We can plot the likelihood of subscribing:
+
+```{r}
+plot(sub.ind.p, xlab="Holdout respondent", ylab="Likelihood")
+```
+
+We can target respondents by likelihood, relative to value of subscribing.
+
+## Does the targeting work?
+
+Finding likelihoods with a model does not answer it will work; checking with holdout data is necessary. (Ideally also check in a new sample).
+
+Compare subscription rates in holdout data, for likelihood ≥ 0.5 vs. lower:
+
+```{r}
+table(targeted=sub.ind.p >= 0.5, sub.df.test$subscribe)
+```
+
+```{r}
+chisq.test(table(sub.ind.p>=0.5, sub.df.test$subscribe))
+```
+
+# Conclusion
+Segmentation is not a method, but a process that must focus clearly on the business need and question. Sometimes a “better” model is less useful.
+
+Clustering can help identify potentially interesting groups in the data. Appropriateness of a solutions depends on both statistical criteria (fit) and business utility (clarity, ability to target, etc.)
+
+If specific groups are known (e.g., segments or behaviors), classification methods find rules to predict membership in those groups. We saw how to predict likelihood-to-subscribe. Depending on cost & margin, one might target more or fewer customers based on likelihood.
+
+Important considerations for classification include performance on holdout data, generalization to new data sets, and avoiding class imbalance problems.
+
+# Suggested Readings
+
+James, Witten, Hastie, & Tibshirani (2013). An Introduction to Statistical Learning, with Applications in R. New York: Springer.
+
+An excellent overview of a wide variety of statistical approaches to learning and classification.
+Kuhn & Johnson (2013). Applied Predictive Modeling. New York: Springer.
+
+A detailed examination of how to build regression and classification models that generalize. It is focused on practical application and overcoming many typical problems of such projects. There is a superb related package (“caret”).
+Wedel & Kamakura (2000). Market Segmentation: Conceptual and Methodological Foundations. New York: Springer.
+
+Discusses a wide variety of approaches to segmentation for marketing applications (not specific to R).
+
