@@ -34,7 +34,7 @@ The second term of the program includes two modules. We learned more deep of the
 
 - The course objective is to teach the basic machine learning algorithms, apply them on different datasets with the end-to-end data analytics project life-cycle -preprocessing, feature selection, model developing, and model evaluation-, and interpreting them.
 
-- My term project is related to Natural Language Processing on tweets posted on the last decades with special hashtags via using Twitter API. My works on the project have been developing. 
+- My term project is related to Natural Language Processing on tweets posted on the last decades with special hashtags via using Twitter API. My works on the project have been developing. You can reach my source codes from [here.](<https://nilaykamar.github.io/MEF_BDA20/Advanced Machine Learning/ML_TermProject-2.html>)
 
 ### Optimization and Simulation with Dicle Aslan
 
